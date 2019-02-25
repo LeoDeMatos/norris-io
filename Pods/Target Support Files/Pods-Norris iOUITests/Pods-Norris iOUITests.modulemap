@@ -1,0 +1,6 @@
+framework module Pods_Norris_iOUITests {
+  umbrella header "Pods-Norris iOUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

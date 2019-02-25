@@ -1,0 +1,6 @@
+framework module Pods_Norris_iO {
+  umbrella header "Pods-Norris iO-umbrella.h"
+
+  export *
+  module * { export * }
+}
