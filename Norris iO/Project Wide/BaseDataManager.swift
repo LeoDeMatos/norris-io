@@ -13,15 +13,15 @@ import Moya
 import Mapper
 import Moya_ModelMapper
 
-class BaseDataManager<P: TargetType> {
+class BaseDataManager<API: TargetType> {
 
-    private let provider: MoyaProvider<P>
+    private let provider: MoyaProvider<API>
     
-    init(provider: MoyaProvider<P>) {
+    init(provider: MoyaProvider<API>) {
         self.provider = provider
     }
     
-    func call<T: Mappable>(apiCall: P) -> Driver<Result<T>> {
+    func call<T: Mappable>(apiCall: API) -> Driver<Result<T>> {
         let newDriver = provider.rx.request(apiCall)
             .map { response -> Result<T> in
                 let responseData = try response.map(to: T.self)
@@ -32,7 +32,7 @@ class BaseDataManager<P: TargetType> {
         return newDriver
     }
     
-    func call<T: Mappable>(apiCall: P) -> Driver<Result<[T]>> {
+    func call<T: Mappable>(apiCall: API) -> Driver<Result<[T]>> {
         let newDriver = provider.rx.request(apiCall)
             .map { response -> Result<[T]> in
                 let responseData = try response.map(to: [T].self)
@@ -43,11 +43,11 @@ class BaseDataManager<P: TargetType> {
         return newDriver
     }
     
-    func call(apiCall: P) -> Driver<Result<[String]>> {
+    func call<T: Codable>(apiCall: API) -> Driver<Result<T>> {
         let newDriver = provider.rx.request(apiCall)
-            .map { response -> Result<[String]> in
+            .map { response -> Result<T> in
                 let decoder = JSONDecoder()
-                let responseData = try decoder.decode([String].self, from: response.data)
+                let responseData = try decoder.decode(T.self, from: response.data)
                 let result = Result(content: responseData)
                 return result
             }.asDriver(onErrorJustReturn: Result()).debug()

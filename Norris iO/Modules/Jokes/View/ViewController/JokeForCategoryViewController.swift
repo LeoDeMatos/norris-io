@@ -102,7 +102,6 @@ class JokeForCategoryViewController: UIViewController {
                 
             default:
                 print(newState)
-                
             }
         }
         viewModel.randomJokeForCategory()

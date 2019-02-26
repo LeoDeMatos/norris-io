@@ -87,8 +87,7 @@ class CategoryListViewController: UIViewController {
 extension CategoryListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var item = viewModel.itemFor(indexPath: indexPath)
-        guard let category = item.popFirst() else { return }
-        delegate?.didSelectedCategory(category: category.key)
+        delegate?.didSelectedCategory(category: item.rawValue)
     }
 }
 
@@ -105,9 +104,8 @@ extension CategoryListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.identifier) as! CategoryTableViewCell
-        var item = viewModel.itemFor(indexPath: indexPath)
-        guard let category = item.popFirst() else { return cell }
-        cell.bind(category: category.key, giphyUrl: category.value)
+        var category = viewModel.itemFor(indexPath: indexPath)
+        cell.bind(category: category.rawValue, giphyUrl: category.giphy)
         return cell
     }
 }

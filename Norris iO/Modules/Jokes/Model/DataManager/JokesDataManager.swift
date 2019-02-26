@@ -25,7 +25,7 @@ class JokesDataManager: BaseDataManager<ChuckNorrisAPI> {
         return call(apiCall: .randomFrom(categoty: category))
     }
     
-    func getCategories() -> Driver<Result<[String]>> {
+    func getCategories() -> Driver<Result<[Joke.Category]>> {
         return call(apiCall: .categories)
     }
 }
