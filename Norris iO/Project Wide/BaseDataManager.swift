@@ -43,11 +43,11 @@ class BaseDataManager<API: TargetType> {
         return newDriver
     }
     
-    func call<T: Codable>(apiCall: API) -> Driver<Result<T>> {
+    func call(apiCall: API) -> Driver<Result<[String]>> {
         let newDriver = provider.rx.request(apiCall)
-            .map { response -> Result<T> in
+            .map { response -> Result<[String]> in
                 let decoder = JSONDecoder()
-                let responseData = try decoder.decode(T.self, from: response.data)
+                let responseData = try decoder.decode([String].self, from: response.data)
                 let result = Result(content: responseData)
                 return result
             }.asDriver(onErrorJustReturn: Result()).debug()

@@ -26,6 +26,15 @@ class JokesDataManager: BaseDataManager<ChuckNorrisAPI> {
     }
     
     func getCategories() -> Driver<Result<[Joke.Category]>> {
-        return call(apiCall: .categories)
+        let baseDriver: Driver<Result<[String]>> =  call(apiCall: .categories)
+        return baseDriver.map { (result) in
+            let stringCategoryArray = result.content
+            var newResult = Result(content: Array<Joke.Category>())
+            stringCategoryArray?.forEach { (category) in
+                let enumCategory = Joke.Category(rawValue: category) ?? .dev
+                newResult.content?.append(enumCategory)
+            }
+            return newResult
+        }
     }
 }

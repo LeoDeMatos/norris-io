@@ -14,7 +14,7 @@ struct Joke: Mappable {
     let id: String
     let value: String
     let icon: String?
-    let category: String?
+    let category: Category?
     
     init(map: Mapper) throws {
         self.id = try map.from("id")
@@ -23,7 +23,7 @@ struct Joke: Mappable {
         self.category = map.optionalFrom("cateogry")
     }
     
-    enum Category: String, Codable {
+    enum Category: String {
         case science
         case dev
         case explicit
