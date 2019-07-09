@@ -7,19 +7,18 @@
 //
 
 import Foundation
-import Mapper
 
-struct Result<Content> {
-    
-    init(content: Content) {
-        self.content = content
-    }
-    
-    init() {}
-    
-    var error: String? = nil
-    var content: Content? = nil
-    var isSuccessFull: Bool {
-        return content != nil
-    }
-}
+//struct Result<Content> {
+//
+//    init(content: Content) {
+//        self.content = content
+//    }
+//
+//    init() {}
+//
+//    var error: String? = nil
+//    var content: Content? = nil
+//    var isSuccessFull: Bool {
+//        return content != nil
+//    }
+//}

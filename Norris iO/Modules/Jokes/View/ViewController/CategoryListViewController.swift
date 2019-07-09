@@ -63,19 +63,9 @@ class CategoryListViewController: UIViewController {
     }
 
     private func configureViewModel() {
-        viewModel.register { (newState) in
-            switch newState {
-                case .loading,
-                     .start:
-                    print("viewModel start")
-
-                case .success,
-                     .done,
-                     .error:
-                    self.tableView.reloadSections([0], with: .left)
-            }
+        viewModel.getCategories { [weak tableView] in
+            tableView?.reloadData()
         }
-        viewModel.getCategories()
     }
     
     // MARK: - Refresh Control Target
@@ -86,7 +76,7 @@ class CategoryListViewController: UIViewController {
 
 extension CategoryListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var item = viewModel.itemFor(indexPath: indexPath)
+        let item = viewModel.itemFor(indexPath: indexPath)
         delegate?.didSelectedCategory(category: item.rawValue)
     }
 }
@@ -104,7 +94,7 @@ extension CategoryListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.identifier) as! CategoryTableViewCell
-        var category = viewModel.itemFor(indexPath: indexPath)
+        let category = viewModel.itemFor(indexPath: indexPath)
         cell.bind(category: category.rawValue, giphyUrl: category.giphy)
         return cell
     }

@@ -7,23 +7,22 @@
 //
 
 import Foundation
-import Mapper
 
-struct Joke: Mappable {
+struct Joke: Codable {
 
     let id: String
     let value: String
     let icon: String?
     let category: Category?
     
-    init(map: Mapper) throws {
-        self.id = try map.from("id")
-        self.value = try map.from("value")
-        self.icon = map.optionalFrom("icon_url")
-        self.category = map.optionalFrom("cateogry")
+    enum KeyValues: String, CodingKey {
+        case id
+        case value
+        case icon = "icon_url"
+        case category
     }
     
-    enum Category: String {
+    enum Category: String, Codable {
         case science
         case dev
         case explicit

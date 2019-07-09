@@ -7,34 +7,22 @@
 //
 
 import Foundation
-import Moya
-import RxCocoa
-import RxSwift
 
 class JokesDataManager: BaseDataManager<ChuckNorrisAPI> {
     
-    override init(provider: MoyaProvider<ChuckNorrisAPI>) {
-        super.init(provider: provider)
+    override init(session: URLSession, decoder: JSONDecoder) {
+        super.init(session: session, decoder: decoder)
     }
     
-    func getJokes() -> Driver<Result<Joke>> {
-        return call(apiCall: .random)
+    func getJokes(completion: @escaping RequestCompletion<[Joke]>) {
+        return call(apiCall: .random, completion: completion)
     }
     
-    func randomJokeFor(category: String) -> Driver<Result<Joke>> {
-        return call(apiCall: .randomFrom(categoty: category))
+    func randomJokeFor(category: String, completion: @escaping RequestCompletion<Joke>) {
+        return call(apiCall: .randomFrom(categoty: category), completion: completion)
     }
     
-    func getCategories() -> Driver<Result<[Joke.Category]>> {
-        let baseDriver: Driver<Result<[String]>> =  call(apiCall: .categories)
-        return baseDriver.map { (result) in
-            let stringCategoryArray = result.content
-            var newResult = Result(content: Array<Joke.Category>())
-            stringCategoryArray?.forEach { (category) in
-                let enumCategory = Joke.Category(rawValue: category) ?? .dev
-                newResult.content?.append(enumCategory)
-            }
-            return newResult
-        }
+    func getCategories(completion: @escaping RequestCompletion<[Joke.Category]>) {
+        call(apiCall: .categories, completion: completion)
     }
 }

@@ -7,32 +7,27 @@
 //
 
 import Foundation
-import RxCocoa
-import RxSwift
 
 class CategoryListViewModel: BaseViewModel {
     
     private let dataManager: JokesDataManager
-    private let disposeBag = DisposeBag()
-    
     private var categories: [Joke.Category] = []
     
     init(dataManager: JokesDataManager) {
         self.dataManager = dataManager
     }
     
-    func getCategories() {
-        postNewState(newState: .loading)
-        dataManager.getCategories()
-            .drive(onNext: { [weak self] result in
-                if result.isSuccessFull {
-                    guard let data =  result.content else { self?.postNewState(newState: .error); return }
-                
-                    self?.categories = data
-                    self?.postNewState(newState: .success)
-                }
-                
-            }).disposed(by: disposeBag)
+    func getCategories(completion: @escaping () -> Void) {
+        dataManager.getCategories() { [weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error)
+    
+            case .success(let categories):
+                self?.categories = categories
+            }
+            completion()
+        }
     }
 
     // MARK: - Table View Data Source

@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import RxSwift
-import RxCocoa
 
 enum ViewModelState {
     case start
@@ -19,13 +17,5 @@ enum ViewModelState {
 }
 
 class BaseViewModel {
-    private let state = BehaviorRelay<ViewModelState>(value: .start)
-    
-    func postNewState(newState: ViewModelState) {
-        state.accept(newState)
-    }
-    
-    func register(observer: @escaping (_ newState: ViewModelState) -> Void) {
-        state.asDriver().drive(onNext: observer)
-    }
+
 }

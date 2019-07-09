@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import Moya
-import Alamofire
 
 let baseUrl = "https://api.chucknorris.io/jokes/"
 
@@ -20,21 +18,12 @@ public enum ChuckNorrisAPI {
 }
 
 extension ChuckNorrisAPI: TargetType {
+    var baseURL: String {
+        return baseUrl
+    }
     
-    public var method: Moya.Method {
+    public var method: HttpMethod {
         return .get
-    }
-    
-    public var sampleData: Data {
-        return "no sample data".data(using: String.Encoding.utf8)!
-    }
-
-    public var headers: [String : String]? {
-        return nil
-    }
-    
-    public var baseURL: URL {
-        return  URL(string: baseUrl)!
     }
     
     public var path: String {
@@ -62,14 +51,6 @@ extension ChuckNorrisAPI: TargetType {
         default:
             return [:]
         }
-    }
-    
-    public var parameterEncoding: ParameterEncoding {
-        return URLEncoding.default
-    }
-        
-    public var task: Task {
-        return .requestParameters(parameters: parameters, encoding: parameterEncoding)
     }
 }
 

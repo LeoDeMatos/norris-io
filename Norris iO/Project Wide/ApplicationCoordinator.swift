@@ -8,9 +8,6 @@
 
 import Foundation
 import UIKit
-import Moya
-import RxSwift
-import RxCocoa
 
 class ApplicationCoordinator: Coordinator {
     
@@ -18,8 +15,9 @@ class ApplicationCoordinator: Coordinator {
     var children: [Coordinator] = []
     
     let rootViewController: UINavigationController
-    let chuckNorrisAPI: MoyaProvider<ChuckNorrisAPI>
+    let session: URLSession
     let dataManager: JokesDataManager
+    let jsonDecoder: JSONDecoder
     
     init(window: UIWindow) {
         self.window = window
@@ -37,8 +35,9 @@ class ApplicationCoordinator: Coordinator {
         
         self.window.rootViewController = rootViewController
         
-        self.chuckNorrisAPI = MoyaProvider<ChuckNorrisAPI>()
-        dataManager = JokesDataManager(provider: chuckNorrisAPI)
+        self.session = URLSession.shared
+        self.jsonDecoder = JSONDecoder()
+        dataManager = JokesDataManager(session: session, decoder: jsonDecoder)
         
         if #available(iOS 11.0, *) {
             self.rootViewController.navigationBar.prefersLargeTitles = true
@@ -65,26 +64,6 @@ class ApplicationCoordinator: Coordinator {
     
     func addChild(coordinator: Coordinator) {
         children.append(coordinator)
-    }
-    
-    // Configure Gradient Background
-    private func addGradientBackground() {
-        let parentView = self.rootViewController.navigationBar
-        let parentWidth = parentView.frame.width
-        let parentHeight = parentView.frame.height + 30
-        
-        let view = UIView(frame: CGRect(
-            x: 0,
-            y: -30,
-            width: parentWidth,
-            height: parentHeight))
-        
-        let gradient = CAGradientLayer()
-        gradient.frame = view.bounds
-        gradient.colors = [UIColor.yellow.cgColor, UIColor.orange.cgColor]
-        
-        view.layer.insertSublayer(gradient, at: 0)
-        parentView.addSubview(view)
     }
 }
 

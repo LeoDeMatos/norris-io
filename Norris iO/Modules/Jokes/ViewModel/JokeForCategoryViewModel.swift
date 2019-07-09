@@ -7,12 +7,10 @@
 //
 
 import Foundation
-import RxSwift
 
 class JokeForCategoryViewModel: BaseViewModel {
     
     private let dataManager: JokesDataManager
-    private let disposeBag = DisposeBag()
     
     let category: String
     var joke: Joke?
@@ -22,17 +20,18 @@ class JokeForCategoryViewModel: BaseViewModel {
         self.dataManager = dataManager
     }
     
-    func randomJokeForCategory() {
-        postNewState(newState: .loading)
-        
-        dataManager.randomJokeFor(category: category)
-            .drive(onNext: { (result) in
-                if result.isSuccessFull {
-                    self.joke = result.content
-                    self.postNewState(newState: .success)
-                } else {
-                    self.postNewState(newState: .error)
-                }
-            }).disposed(by: disposeBag)
+    func randomJokeForCategory(completion: @escaping (_ joke: Joke?) -> Void) {
+        dataManager.randomJokeFor(category: category) { [weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error)
+                completion(nil)
+                
+            case .success(let joke):
+                self?.joke = joke
+                completion(joke)
+                
+            }
+        }
     }
 }

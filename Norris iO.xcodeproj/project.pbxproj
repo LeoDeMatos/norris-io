@@ -3,12 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19551FC4BA64F1C1F07F253E /* Pods_Norris_iO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C021C4E91754084BD6038AE2 /* Pods_Norris_iO.framework */; };
-		7479A91CF3A763F4AAFD80A0 /* Pods_Norris_iOTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DCD34242F8B7D1FD4C79F6 /* Pods_Norris_iOTests.framework */; };
 		A7449EA62222FB6B00924655 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7449EA52222FB6B00924655 /* UIColor+Extension.swift */; };
 		A747C78D2219B61B0060FE73 /* CategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A747C78C2219B61B0060FE73 /* CategoryListViewModel.swift */; };
 		A747C7912219B7E80060FE73 /* JokesDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A747C7902219B7E80060FE73 /* JokesDataManager.swift */; };
@@ -16,7 +14,6 @@
 		A747C7952219BDCD0060FE73 /* Joke.swift in Sources */ = {isa = PBXBuildFile; fileRef = A747C7942219BDCD0060FE73 /* Joke.swift */; };
 		A747C7982219C1390060FE73 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A747C7972219C1390060FE73 /* Result.swift */; };
 		A747C79A221A02080060FE73 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A747C799221A02080060FE73 /* BaseViewModel.swift */; };
-		A747C79C221A0A4F0060FE73 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A747C79B221A0A4F0060FE73 /* Category.swift */; };
 		A747C79E221A0F530060FE73 /* JokeForCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A747C79D221A0F530060FE73 /* JokeForCategoryViewController.swift */; };
 		A781BB182216525B004184DD /* ChuckNorrisAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A781BB172216525B004184DD /* ChuckNorrisAPI.swift */; };
 		A781BB1D22166247004184DD /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A781BB1B22166247004184DD /* CategoryTableViewCell.swift */; };
@@ -30,9 +27,11 @@
 		A7B9104822163E4C0073696B /* Norris_iOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B9104722163E4C0073696B /* Norris_iOUITests.swift */; };
 		A7B91057221640B70073696B /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B91056221640B70073696B /* ApplicationCoordinator.swift */; };
 		A7B91059221640CB0073696B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B91058221640CB0073696B /* Coordinator.swift */; };
+		A7D4E42522D3EF5600D4D7FC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A7D4E42422D3EF5600D4D7FC /* Kingfisher */; };
+		A7D4E42722D3F19A00D4D7FC /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D4E42622D3F19A00D4D7FC /* Network.swift */; };
 		A7D7C2AF221C2C48001D6F3D /* JokeForCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D7C2AE221C2C48001D6F3D /* JokeForCategoryViewModel.swift */; };
 		A7D7C2B1221C6838001D6F3D /* UIImageView+NetworkLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D7C2B0221C6838001D6F3D /* UIImageView+NetworkLoading.swift */; };
-		CF15CBBA8E93F4E3BB827D7D /* Pods_Norris_iOUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B4FE3A56C0844B9DAA9FDC /* Pods_Norris_iOUITests.framework */; };
+		A7F0B0A622D2992000DF2007 /* Cartography in Frameworks */ = {isa = PBXBuildFile; productRef = A7F0B0A522D2992000DF2007 /* Cartography */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,9 +52,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05891D79D5A192E9BE594D59 /* Pods-Norris iOTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Norris iOTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Norris iOTests/Pods-Norris iOTests.debug.xcconfig"; sourceTree = "<group>"; };
-		310846770CFB503D55B6D67C /* Pods-Norris iOTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Norris iOTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Norris iOTests/Pods-Norris iOTests.release.xcconfig"; sourceTree = "<group>"; };
-		72DCD34242F8B7D1FD4C79F6 /* Pods_Norris_iOTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Norris_iOTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7449EA52222FB6B00924655 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		A747C78C2219B61B0060FE73 /* CategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewModel.swift; sourceTree = "<group>"; };
 		A747C7902219B7E80060FE73 /* JokesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesDataManager.swift; sourceTree = "<group>"; };
@@ -63,7 +59,6 @@
 		A747C7942219BDCD0060FE73 /* Joke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joke.swift; sourceTree = "<group>"; };
 		A747C7972219C1390060FE73 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		A747C799221A02080060FE73 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
-		A747C79B221A0A4F0060FE73 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		A747C79D221A0F530060FE73 /* JokeForCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeForCategoryViewController.swift; sourceTree = "<group>"; };
 		A781BB172216525B004184DD /* ChuckNorrisAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChuckNorrisAPI.swift; path = "/Users/Leonardo/Documents/Xcode Projects/Personal Projects/Norris iO/Norris iO/Modules/Jokes/ChuckNorrisAPI.swift"; sourceTree = "<absolute>"; };
 		A781BB1B22166247004184DD /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -83,14 +78,9 @@
 		A7B9104922163E4C0073696B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7B91056221640B70073696B /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		A7B91058221640CB0073696B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		A7D4E42622D3F19A00D4D7FC /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		A7D7C2AE221C2C48001D6F3D /* JokeForCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeForCategoryViewModel.swift; sourceTree = "<group>"; };
 		A7D7C2B0221C6838001D6F3D /* UIImageView+NetworkLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+NetworkLoading.swift"; sourceTree = "<group>"; };
-		B988D46C6C3482BCE42CA383 /* Pods-Norris iO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Norris iO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Norris iO/Pods-Norris iO.debug.xcconfig"; sourceTree = "<group>"; };
-		C021C4E91754084BD6038AE2 /* Pods_Norris_iO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Norris_iO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4B4FE3A56C0844B9DAA9FDC /* Pods_Norris_iOUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Norris_iOUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E89B6A4DDD5E9D67EB957829 /* Pods-Norris iO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Norris iO.release.xcconfig"; path = "Pods/Target Support Files/Pods-Norris iO/Pods-Norris iO.release.xcconfig"; sourceTree = "<group>"; };
-		EE693372D3FEA8F9530EEC73 /* Pods-Norris iOUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Norris iOUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Norris iOUITests/Pods-Norris iOUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		F8CBFFC19DFB73C472A923BD /* Pods-Norris iOUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Norris iOUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Norris iOUITests/Pods-Norris iOUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +88,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19551FC4BA64F1C1F07F253E /* Pods_Norris_iO.framework in Frameworks */,
+				A7D4E42522D3EF5600D4D7FC /* Kingfisher in Frameworks */,
+				A7F0B0A622D2992000DF2007 /* Cartography in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,7 +97,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7479A91CF3A763F4AAFD80A0 /* Pods_Norris_iOTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,32 +104,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF15CBBA8E93F4E3BB827D7D /* Pods_Norris_iOUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3ED85DFF4B86D64E8FC1FD2C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B988D46C6C3482BCE42CA383 /* Pods-Norris iO.debug.xcconfig */,
-				E89B6A4DDD5E9D67EB957829 /* Pods-Norris iO.release.xcconfig */,
-				05891D79D5A192E9BE594D59 /* Pods-Norris iOTests.debug.xcconfig */,
-				310846770CFB503D55B6D67C /* Pods-Norris iOTests.release.xcconfig */,
-				EE693372D3FEA8F9530EEC73 /* Pods-Norris iOUITests.debug.xcconfig */,
-				F8CBFFC19DFB73C472A923BD /* Pods-Norris iOUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		62B614052AA9030DC496D07F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C021C4E91754084BD6038AE2 /* Pods_Norris_iO.framework */,
-				72DCD34242F8B7D1FD4C79F6 /* Pods_Norris_iOTests.framework */,
-				E4B4FE3A56C0844B9DAA9FDC /* Pods_Norris_iOUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -220,6 +193,7 @@
 				A7B91056221640B70073696B /* ApplicationCoordinator.swift */,
 				A747C7922219B7FF0060FE73 /* BaseDataManager.swift */,
 				A747C799221A02080060FE73 /* BaseViewModel.swift */,
+				A7D4E42622D3F19A00D4D7FC /* Network.swift */,
 			);
 			path = "Project Wide";
 			sourceTree = "<group>";
@@ -230,7 +204,6 @@
 				A747C78F2219B7D40060FE73 /* DataManager */,
 				A747C78E2219B76C0060FE73 /* API */,
 				A747C7942219BDCD0060FE73 /* Joke.swift */,
-				A747C79B221A0A4F0060FE73 /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -261,7 +234,6 @@
 				A7B9103B22163E4C0073696B /* Norris iOTests */,
 				A7B9104622163E4C0073696B /* Norris iOUITests */,
 				A7B9102522163E4A0073696B /* Products */,
-				3ED85DFF4B86D64E8FC1FD2C /* Pods */,
 				62B614052AA9030DC496D07F /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -316,17 +288,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7B9104C22163E4C0073696B /* Build configuration list for PBXNativeTarget "Norris iO" */;
 			buildPhases = (
-				314CD7C98485611B23B5CF86 /* [CP] Check Pods Manifest.lock */,
 				A7B9102022163E490073696B /* Sources */,
 				A7B9102122163E490073696B /* Frameworks */,
 				A7B9102222163E490073696B /* Resources */,
-				2F5260322591D59EA6DC9DB7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Norris iO";
+			packageProductDependencies = (
+				A7F0B0A522D2992000DF2007 /* Cartography */,
+				A7D4E42422D3EF5600D4D7FC /* Kingfisher */,
+			);
 			productName = "Norris iO";
 			productReference = A7B9102422163E4A0073696B /* Norris iO.app */;
 			productType = "com.apple.product-type.application";
@@ -401,6 +375,10 @@
 				Base,
 			);
 			mainGroup = A7B9101B22163E490073696B;
+			packageReferences = (
+				A7F0B0A422D2992000DF2007 /* XCRemoteSwiftPackageReference "Cartography" */,
+				A7D4E42322D3EF5600D4D7FC /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = A7B9102522163E4A0073696B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -458,62 +436,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2F5260322591D59EA6DC9DB7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Norris iO/Pods-Norris iO-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Cartography/Cartography.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/ModelMapper/Mapper.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya-ModelMapper/Moya_ModelMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cartography.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ModelMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Norris iO/Pods-Norris iO-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		314CD7C98485611B23B5CF86 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Norris iO-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7F2C6D51D39CEA805092F8AD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -553,10 +475,10 @@
 				A747C79A221A02080060FE73 /* BaseViewModel.swift in Sources */,
 				A7B9102822163E4A0073696B /* AppDelegate.swift in Sources */,
 				A7B91057221640B70073696B /* ApplicationCoordinator.swift in Sources */,
+				A7D4E42722D3F19A00D4D7FC /* Network.swift in Sources */,
 				A781BB1D22166247004184DD /* CategoryTableViewCell.swift in Sources */,
 				A747C7932219B7FF0060FE73 /* BaseDataManager.swift in Sources */,
 				A747C78D2219B61B0060FE73 /* CategoryListViewModel.swift in Sources */,
-				A747C79C221A0A4F0060FE73 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,7 +576,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -709,7 +631,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -721,13 +643,12 @@
 		};
 		A7B9104D22163E4C0073696B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B988D46C6C3482BCE42CA383 /* Pods-Norris iO.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 67U26DS86X;
 				INFOPLIST_FILE = "Norris iO/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -741,13 +662,12 @@
 		};
 		A7B9104E22163E4C0073696B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E89B6A4DDD5E9D67EB957829 /* Pods-Norris iO.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 67U26DS86X;
 				INFOPLIST_FILE = "Norris iO/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -761,7 +681,6 @@
 		};
 		A7B9105022163E4C0073696B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05891D79D5A192E9BE594D59 /* Pods-Norris iOTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -783,7 +702,6 @@
 		};
 		A7B9105122163E4C0073696B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 310846770CFB503D55B6D67C /* Pods-Norris iOTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -805,7 +723,6 @@
 		};
 		A7B9105322163E4C0073696B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE693372D3FEA8F9530EEC73 /* Pods-Norris iOUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -826,7 +743,6 @@
 		};
 		A7B9105422163E4C0073696B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8CBFFC19DFB73C472A923BD /* Pods-Norris iOUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -885,6 +801,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A7D4E42322D3EF5600D4D7FC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = xcode11;
+				kind = branch;
+			};
+		};
+		A7F0B0A422D2992000DF2007 /* XCRemoteSwiftPackageReference "Cartography" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/robb/Cartography.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A7D4E42422D3EF5600D4D7FC /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A7D4E42322D3EF5600D4D7FC /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		A7F0B0A522D2992000DF2007 /* Cartography */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A7F0B0A422D2992000DF2007 /* XCRemoteSwiftPackageReference "Cartography" */;
+			productName = Cartography;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A7B9101C22163E490073696B /* Project object */;
 }

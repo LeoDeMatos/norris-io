@@ -7,51 +7,68 @@
 //
 
 import Foundation
-import RxSwift
-import RxCocoa
-import Moya
-import Mapper
-import Moya_ModelMapper
+import Combine
 
-class BaseDataManager<API: TargetType> {
+protocol DataManagerProtocol: AnyObject {
+    associatedtype API: TargetType
+    func call<T: Codable>(apiCall: API, completion: @escaping (_ result: Result<T, Error>) -> Void)
+    func call(apiCall: API,completion: @escaping (_ result: Result<String, Error>) -> Void)
+}
 
-    private let provider: MoyaProvider<API>
+typealias RequestCompletion<T> = (_ result: Result<T, Error>) -> Void
+
+class BaseDataManager<API: TargetType>: DataManagerProtocol {
+
+    private let session: URLSession
+    private let decoder: JSONDecoder
     
-    init(provider: MoyaProvider<API>) {
-        self.provider = provider
+    init(session: URLSession, decoder: JSONDecoder) {
+        self.session = session
+        self.decoder = decoder
     }
     
-    func call<T: Mappable>(apiCall: API) -> Driver<Result<T>> {
-        let newDriver = provider.rx.request(apiCall)
-            .map { response -> Result<T> in
-                let responseData = try response.map(to: T.self)
-                let result = Result(content: responseData)
-                return result
-            }.asDriver(onErrorJustReturn: Result()).debug()
-
-        return newDriver
+    func call<T: Codable>(apiCall: API, completion: @escaping RequestCompletion<T>) {
+    
+        if #available(iOS 13, *) {
+            callWithCombine(apiCall: apiCall, completion: completion)
+        } else {
+            callWithRegular(apiCall: apiCall, completion: completion)
+        }
     }
     
-    func call<T: Mappable>(apiCall: API) -> Driver<Result<[T]>> {
-        let newDriver = provider.rx.request(apiCall)
-            .map { response -> Result<[T]> in
-                let responseData = try response.map(to: [T].self)
-                let result = Result(content: responseData)
-                return result
-            }.asDriver(onErrorJustReturn: Result()).debug()
+    @available(iOS 13, *)
+    private func callWithCombine<T: Codable>(apiCall: API, completion: @escaping RequestCompletion<T>) {
+        let url = apiCall.getURL()
+        var request = URLRequest(url: url)
+        request.httpMethod = apiCall.method.rawValue
+        let publisher = session.dataTaskPublisher(for: request)
         
-        return newDriver
+        _ = publisher
+            .tryMap { data, _ in return data }
+            .decode(type: T.self, decoder: decoder)
+            .mapError({ error -> Error in
+                print(error.localizedDescription)
+                return error
+            })
+            .receive(on: RunLoop.main)
+            .sink(receiveValue: { (data) in
+                completion(.success(data))
+            })
     }
     
-    func call(apiCall: API) -> Driver<Result<[String]>> {
-        let newDriver = provider.rx.request(apiCall)
-            .map { response -> Result<[String]> in
-                let decoder = JSONDecoder()
-                let responseData = try decoder.decode([String].self, from: response.data)
-                let result = Result(content: responseData)
-                return result
-            }.asDriver(onErrorJustReturn: Result()).debug()
+    private func callWithRegular<T: Codable>(apiCall: API, completion: @escaping RequestCompletion<T>) {
+        let url = apiCall.getURL()
+        var request = URLRequest(url: url)
+        request.httpMethod = apiCall.method.rawValue
         
-        return newDriver
+        let task = session.dataTask(with: request) { [weak self] (data, response, error) in
+            guard error == nil, let data = data else { completion(.failure(error!)); return }
+            
+            if let decodedData = try? self?.decoder.decode(T.self, from: data) {
+                completion(.success(decodedData!))
+            }
+        }
+        
+        task.resume()
     }
 }

@@ -41,16 +41,17 @@ class JokeForCategoryViewController: UIViewController {
         return button
     }()
     
-    var viewModel: JokeForCategoryViewModel!
+    var viewModel: JokeForCategoryViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .black
         configureView()
-        configureViewModel()
+        fetchJoke()
     }
     
     private func configureView() {
-        navigationItem.title = viewModel.category.capitalized
+        navigationItem.title = viewModel?.category.capitalized
         navigationItem.backBarButtonItem = UIBarButtonItem()
         view.backgroundColor = .black
     
@@ -82,28 +83,17 @@ class JokeForCategoryViewController: UIViewController {
         }
     }
     
-    @objc func newJokeButtonTapped(sender: UIButton) {
-        viewModel.randomJokeForCategory()
+    private func fetchJoke() {
+        viewModel?.randomJokeForCategory { [weak self] joke in
+            self?.newJokeButton.isEnabled = true
+            self?.jokeLabel.text = joke?.value
+            let icon = joke?.icon ?? ""
+            self?.imageView.load(url: icon)
+        }
     }
     
-    // MARK: - ViewModel Configuration
-    
-    private func configureViewModel() {
-        viewModel.register { [weak self] (newState) in
-            switch newState {
-            case .start,
-                 .loading:
-                self?.newJokeButton.isEnabled = false
-            case .success:
-                self?.newJokeButton.isEnabled = true
-                self?.jokeLabel.text = self?.viewModel.joke?.value
-                let icon = self?.viewModel.joke?.icon ?? ""
-                self?.imageView.load(url: icon)
-                
-            default:
-                print(newState)
-            }
-        }
-        viewModel.randomJokeForCategory()
+    @objc func newJokeButtonTapped(sender: UIButton) {
+        newJokeButton.isEnabled = false
+        fetchJoke()
     }
 }
